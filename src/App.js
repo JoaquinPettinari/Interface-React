@@ -25,16 +25,11 @@ function App() {
 }*/
 
 class App extends Component{
-  render(){
-    return(
-      <Contacts contacts={this.state.contacts}/>
-    )
-  }
-
   state = {
     contacts: []
   }
-
+  
+  
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(res => res.json())
@@ -42,6 +37,13 @@ class App extends Component{
       this.setState({ contacts: data })
     })
     .catch(console.log)
+
+
+  }
+  render(){
+    return(
+      <Contacts contacts={this.state.contacts}/>
+      )
   }
 }
 
